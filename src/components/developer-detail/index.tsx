@@ -16,7 +16,6 @@ export interface DeveloperDetailProps {
 
 export const DeveloperDetail = ({ dev }: DeveloperDetailProps) => {
   const { rank, avatar, name, username, popularRepository, url } = dev;
-  debugger;
   return (
     <div className="p-3 border-bottom border-secondary">
       <div className="d-flex">
