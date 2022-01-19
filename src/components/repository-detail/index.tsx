@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { computer } from "../svgs";
+import { Button } from "reactstrap";
+import { computer, link, star } from "../svgs";
 import "./styles.css";
 
 let dummyText =
@@ -17,15 +18,14 @@ export interface RespositoryDetailProps {
 
 export const RespositoryDetail = ({ repo }: RespositoryDetailProps) => {
   const { repourl, avatar, reponame, description, author } = repo;
-  debugger;
   return (
     <div className="p-3 border-bottom">
       <div className="d-flex align-items-center">
         <div className="d-flex align-items-center flex-grow-1">
           <div className="computer-icon d-flex">{computer}</div>
-          <div>
+          <div className="ms-3">
             <Link
-              className="font-weight-bold text-primary text-left"
+              className="font-weight-bold text-primary text-left repo-name"
               to={repourl}
             >
               {`${author}/${reponame}`}
@@ -33,15 +33,46 @@ export const RespositoryDetail = ({ repo }: RespositoryDetailProps) => {
           </div>
         </div>
         <div className="d-flex text-white text-end">
-          <div>icon</div>
+          <div>
+          <Button outline className="d-flex align-items-center">
+            <div>{star}</div>
+            <div className="ms-2">Star</div>
+          </Button>
+          </div>
         </div>
       </div>
       <div>
-        <p className="lead text-muted w-75 text-start">
+        <p className="text-muted w-75 text-start description">
           {description || dummyText}
         </p>
       </div>
-      {avatar && <img src={avatar} alt="..." className="rounded-circle" />}
+      <div className="d-flex align-items-center">
+        {avatar && (
+          <div className="d-flex align-items-center">
+            <div className="built-text text-muted">Built by:</div>
+            <img
+              src={avatar}
+              alt="..."
+              className="rounded-circle avatar ms-2"
+            />
+          </div>
+        )}
+
+        <div className="d-flex mx-5 text-muted align-items-center">
+          <div className="computer-icon d-flex">{star}</div>
+          <div className="built-text ms-2 text-muted">2,104</div>
+        </div>
+
+        <div className="d-flex align-items-center">
+          <div className="computer-icon d-flex">{link}</div>
+          <div className="built-text ms-2 text-muted">288</div>
+        </div>
+
+        <div className="d-flex align-items-center ms-auto">
+          <div className="computer-icon d-flex">{star}</div>
+          <div className="built-text ms-2 text-muted">288 stars today</div>
+        </div>
+      </div>
     </div>
   );
 };

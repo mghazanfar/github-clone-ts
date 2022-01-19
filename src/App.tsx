@@ -6,7 +6,7 @@ import TrendingDevelopers from "./pages/trending-developers";
 
 function App() {
   return (
-    <div className="bg-dark app-container p-5">
+    <div className="bg-black app-container p-5">
       <BrowserRouter>
         <Switch>
           <Route element={<TrendingRepositories />} path="/" />
