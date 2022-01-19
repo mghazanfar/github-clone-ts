@@ -1,0 +1,9 @@
+.computer-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.computer-icon > svg {
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,8 @@
+.data-container {
+  min-height: 60vh;
+  border-color: #6c757d !important;
+}
+
+.child-container {
+  border-color: #6c757d !important;
+}
