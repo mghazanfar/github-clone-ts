@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Button, ButtonGroup } from "reactstrap";
 
-export const Header = ({ children }: any) => {
+export const Header = ({ children, active }: any) => {
   const push = useNavigate();
   return (
     <div className="pt-5">
@@ -14,10 +14,16 @@ export const Header = ({ children }: any) => {
           <div className="border child-container rounded">
             <div className="p-3 bg-secondary d-flex">
               <ButtonGroup>
-                <Button color="primary" onClick={function noRefCheck() {}}>
+                <Button
+                  color={active === 1 ? "primary" : "secondary"}
+                  onClick={() => push("/repositories")}
+                >
                   Repositories
                 </Button>
-                <Button color="secondary" onClick={() => push("/developers")}>
+                <Button
+                  color={active === 2 ? "primary" : "secondary"}
+                  onClick={() => push("/developers")}
+                >
                   Developers
                 </Button>
               </ButtonGroup>

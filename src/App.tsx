@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes as Switch } from "react-router-dom";
 import TrendingRepositories from "./pages/trending-repositories";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import TrendingDevelopers from "./pages/trending-developers";
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
         <Switch>
           <Route element={<TrendingRepositories />} path="/" />
           <Route element={<TrendingRepositories />} path="/repositories" />
-          <Route element={<div>Hi I'm Developers</div>} path="/developers" />
+          <Route element={<TrendingDevelopers />} path="/developers" />
         </Switch>
       </BrowserRouter>
     </div>
