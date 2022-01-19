@@ -20,7 +20,7 @@ export const RespositoryDetail = ({ repo }: RespositoryDetailProps) => {
   const { url, builtBy, repositoryName, description, username, totalStars, forks, starsSince } = repo;
   debugger
   return (
-    <div className="p-3 border-bottom">
+    <div className="p-3 border-bottom border-secondary">
       <div className="d-flex align-items-center">
         <div className="d-flex align-items-center flex-grow-1">
           <div className="computer-icon d-flex">{computer}</div>

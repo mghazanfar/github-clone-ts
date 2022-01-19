@@ -12,9 +12,9 @@ export const Header = ({ children, active }: any) => {
         </p>
         <div className="d-flex flex-column align-items-center">
           <div className="w-75">
-            <div className="border data-container rounded mt-5">
-              <div className="border child-container rounded">
-                <div className="p-3 bg-dark d-flex">
+            <div className="border border-secondary data-container mt-5 rounded">
+              <div className="border-bottom border-secondary child-container ">
+                <div className="p-3 bg-dark d-flex rounded">
                   <ButtonGroup>
                     <Button
                       color={active === 1 ? "primary" : "secondary"}
