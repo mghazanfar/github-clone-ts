@@ -1,9 +1,9 @@
-import githubTrends from "github-trends-api";
+import axios from "axios";
 
-export const getTrendingRepositories = () => {
-  return githubTrends({ section: "repositories", since: "weekly" });
+export const getTrendingRepositories: any = () => {
+  return axios.get("https://gh-trending-api.herokuapp.com/repositories");
 };
 
-export const getTrendingDevelopers = () => {
-  return githubTrends({ section: "developers", since: "weekly" });
+export const getTrendingDevelopers: any = () => {
+  return axios.get("https://gh-trending-api.herokuapp.com/developers");
 };

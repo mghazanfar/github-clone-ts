@@ -9,9 +9,10 @@ export const TrendingDevelopersContainer = () => {
 
   useEffect(() => {
     setLoading(true);
-    getTrendingDevelopers().then((res: RespositoryDetailProps[]) => {
+    getTrendingDevelopers().then((res: any) => {
+      debugger
       setLoading(false);
-      setDevelopers(res);
+      setDevelopers(res.data);
     });
   }, []);
 

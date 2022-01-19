@@ -11,9 +11,9 @@ export const TrendingRepositoriesContainer = () => {
 
   useEffect(() => {
     setLoading(true);
-    getTrendingRepositories().then((res: RespositoryDetailProps[]) => {
+    getTrendingRepositories().then((res: any) => {
       setLoading(false);
-      setRepositories(res);
+      setRepositories(res.data);
     });
   }, []);
 

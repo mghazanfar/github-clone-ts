@@ -3,21 +3,22 @@ import { Button } from "reactstrap";
 import { computer, link, star } from "../svgs";
 import "./styles.css";
 
-let dummyText =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pharetra enim id mi aliquet consequat ac nec enim. Praesent ut laoreet turpis. Curabitur tempus nec lorem quis mollis. Suspendisse lacus purus, lacinia at nibh id, dignissim vulputate lorem. Duis et lobortis dolor, at fermentum ipsum. Curabitur iaculis sagittis metus sit amet maximus. Nunc at tempus velit. Fusce pretium justo eget ullamcorper ultricies. Sed id fringilla sem. Quisque non dui at nulla maximus convallis. Praesent ullamcorper cursus lobortis. Vestibulum in metus ex. In vel vulputate purus. Ut id metus non augue";
-
 export interface RespositoryDetailProps {
   repo: {
-    repourl: string;
-    avatar: string;
-    reponame: string;
+    url: string;
+    builtBy: {avatar:string}[];
+    repositoryName: string;
     description: string;
-    author: string;
+    username: string;
+    totalStars: number;
+    forks: number;
+    starsSince: number;
   };
 }
 
 export const RespositoryDetail = ({ repo }: RespositoryDetailProps) => {
-  const { repourl, avatar, reponame, description, author } = repo;
+  const { url, builtBy, repositoryName, description, username, totalStars, forks, starsSince } = repo;
+  debugger
   return (
     <div className="p-3 border-bottom">
       <div className="d-flex align-items-center">
@@ -26,9 +27,9 @@ export const RespositoryDetail = ({ repo }: RespositoryDetailProps) => {
           <div className="ms-3">
             <Link
               className="font-weight-bold text-primary text-left repo-name"
-              to={repourl}
+              to={url}
             >
-              {`${author}/${reponame}`}
+              {`${username}/${repositoryName}`}
             </Link>
           </div>
         </div>
@@ -43,34 +44,34 @@ export const RespositoryDetail = ({ repo }: RespositoryDetailProps) => {
       </div>
       <div>
         <p className="text-muted w-75 text-start description">
-          {description || dummyText}
+          {description}
         </p>
       </div>
       <div className="d-flex align-items-center">
-        {avatar && (
+        {builtBy && (
           <div className="d-flex align-items-center">
-            <div className="built-text text-muted">Built by:</div>
-            <img
-              src={avatar}
+            <div className="built-text text-muted me-2">Built by:</div>
+            {builtBy.map(user=><img
+              src={user.avatar}
               alt="..."
-              className="rounded-circle avatar ms-2"
-            />
+              className="rounded-circle avatar me-2"
+            />)}
           </div>
         )}
 
         <div className="d-flex mx-5 text-muted align-items-center">
           <div className="computer-icon d-flex">{star}</div>
-          <div className="built-text ms-2 text-muted">2,104</div>
+          <div className="built-text ms-2 text-muted">{totalStars}</div>
         </div>
 
         <div className="d-flex align-items-center">
           <div className="computer-icon d-flex">{link}</div>
-          <div className="built-text ms-2 text-muted">288</div>
+          <div className="built-text ms-2 text-muted">{forks}</div>
         </div>
 
         <div className="d-flex align-items-center ms-auto">
           <div className="computer-icon d-flex">{star}</div>
-          <div className="built-text ms-2 text-muted">288 stars today</div>
+          <div className="built-text ms-2 text-muted">{starsSince} stars today</div>
         </div>
       </div>
     </div>

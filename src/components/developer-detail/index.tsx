@@ -19,28 +19,7 @@ export const DeveloperDetail = ({ dev }: DeveloperDetailProps) => {
   debugger;
   return (
     <div className="p-3 border-bottom">
-      <div className="d-flex align-items-center">
-        <div className="d-flex align-items-center flex-grow-1">
-          <div className="computer-icon d-flex">{computer}</div>
-          <div>
-            <Link
-              className="font-weight-bold text-primary text-left"
-              to={repourl}
-            >
-              {`${author}/${reponame}`}
-            </Link>
-          </div>
-        </div>
-        <div className="d-flex text-white text-end">
-          <div>icon</div>
-        </div>
-      </div>
-      <div>
-        <p className="lead text-muted w-75 text-start">
-          {description || dummyText}
-        </p>
-      </div>
-      {avatar && <img src={avatar} alt="..." className="rounded-circle" />}
+      
     </div>
   );
 };
